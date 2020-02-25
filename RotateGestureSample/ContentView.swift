@@ -9,8 +9,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var degrees: Double = 0
+    
     var body: some View {
-        Text("Hello, World!")
+        Image("Logo")
+            .rotationEffect(Angle(degrees: degrees))
+            .gesture(RotationGesture().onChanged { value in
+                self.degrees = value.degrees
+            })
     }
 }
 
